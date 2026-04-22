@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="cs" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebMaster Blog — Tvůj průvodce digitálním světem</title>
+  <meta name="description" content="Praktické rady, tipy a inspirace pro každého, kdo chce uspět na internetu." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+</head>
+<body>
+
+<!-- cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- scroll progress -->
+<div id="progress-bar"></div>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">WebMaster</a>
+    <ul class="nav-links">
+      <li><a href="#blog">Články</a></li>
+      <li><a href="#duvera">O nás</a></li>
+      <li><a href="#recenze">Recenze</a></li>
+      <li><a href="#cta" class="nav-cta">Zdarma začít</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" title="Přepnout téma">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-grid-bg"></div>
+  <div class="hero-blob1"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-blob3"></div>
+
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Nový článek každý týden
+    </div>
+
+    <h1>
+      Naučíme tě, jak<br>
+      <span class="gradient-text">
+        <span class="typewriter-wrap">
+          <span id="typewriter">uspět online</span><span class="typewriter-cursor"></span>
+        </span>
+      </span>
+    </h1>
+
+    <p class="hero-sub">
+      Praktické rady o webu, online marketingu a podnikání na internetu —
+      bez zbytečného žargonu.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#blog" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        Číst články
+      </a>
+      <a href="#cta" class="btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Přihlásit newsletter
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <strong><span class="counter" data-target="12400">0</span>+</strong>
+        <span>spokojených čtenářů</span>
+      </div>
+      <div class="hero-stat">
+        <strong><span class="counter" data-target="5">0</span> let</strong>
+        <span>zkušeností v oboru</span>
+      </div>
+      <div class="hero-stat">
+        <strong><span class="counter" data-target="97">0</span> %</strong>
+        <span>doporučilo dál</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="divider"></div>
+
+<!-- ══ BLOG ══ -->
+<section id="blog">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">Blog</p>
+    <h2 class="section-title reveal reveal-delay-1">Nejlepší články pro tebe</h2>
+    <p class="section-sub reveal reveal-delay-2">Vybíráme témata, která opravdu potřebuješ znát — a píšeme je srozumitelně.</p>
+
+    <div class="blog-grid">
+
+      <article class="card reveal" onclick="openArticle(0)">
+        <div class="card-banner">
+          <svg viewBox="0 0 400 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#312e81"/>
+                <stop offset="100%" stop-color="#1e3a5f"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="180" fill="url(#g1)"/>
+            <circle cx="320" cy="40" r="80" fill="#6366f1" opacity="0.15"/>
+            <circle cx="60" cy="140" r="60" fill="#22d3ee" opacity="0.1"/>
+            <line x1="0" y1="60" x2="400" y2="60" stroke="#6366f1" stroke-width="1" opacity="0.2"/>
+            <line x1="0" y1="90" x2="400" y2="90" stroke="#6366f1" stroke-width="1" opacity="0.15"/>
+            <line x1="0" y1="120" x2="400" y2="120" stroke="#6366f1" stroke-width="1" opacity="0.1"/>
+          </svg>
+          <span class="card-banner-emoji">🌐</span>
+        </div>
+        <div class="card-body">
+          <span class="card-tag tag-blue">Web & Design</span>
+          <h3>5 chyb, které dělají všichni začátečníci při tvorbě webu</h3>
+          <p>Vytvoření webu není jen o hezké grafice. Ukazujeme nejčastější pasti a jak se jim elegantně vyhnout.</p>
+          <div class="card-footer">
+            <span class="card-date">📅 15. 4. 2026 · 5 min</span>
+            <span class="card-read-btn">Číst <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal reveal-delay-1" onclick="openArticle(1)">
+        <div class="card-banner">
+          <svg viewBox="0 0 400 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#064e3b"/>
+                <stop offset="100%" stop-color="#065f46"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="180" fill="url(#g2)"/>
+            <circle cx="350" cy="90" r="100" fill="#10b981" opacity="0.12"/>
+            <path d="M50,140 Q120,40 200,80 Q280,120 380,30" stroke="#10b981" stroke-width="2" fill="none" opacity="0.4"/>
+            <path d="M50,160 Q120,80 200,100 Q280,130 380,60" stroke="#6ee7b7" stroke-width="1.5" fill="none" opacity="0.25"/>
+          </svg>
+          <span class="card-banner-emoji">📈</span>
+        </div>
+        <div class="card-body">
+          <span class="card-tag tag-green">Marketing</span>
+          <h3>Jak získat prvních 1 000 návštěvníků bez reklamy</h3>
+          <p>Organický provoz není mýtus. Prozradíme konkrétní strategie SEO a obsahového marketingu.</p>
+          <div class="card-footer">
+            <span class="card-date">📅 8. 4. 2026 · 7 min</span>
+            <span class="card-read-btn">Číst <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal reveal-delay-2" onclick="openArticle(2)">
+        <div class="card-banner">
+          <svg viewBox="0 0 400 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2e1065"/>
+                <stop offset="100%" stop-color="#4c1d95"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="180" fill="url(#g3)"/>
+            <circle cx="200" cy="90" r="60" fill="#8b5cf6" opacity="0.15"/>
+            <rect x="160" y="65" width="80" height="55" rx="8" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity="0.4"/>
+            <rect x="178" y="80" width="44" height="6" rx="3" fill="#a78bfa" opacity="0.3"/>
+            <circle cx="200" cy="100" r="8" fill="none" stroke="#c4b5fd" stroke-width="1.5" opacity="0.5"/>
+          </svg>
+          <span class="card-banner-emoji">🔒</span>
+        </div>
+        <div class="card-body">
+          <span class="card-tag tag-purple">Bezpečnost</span>
+          <h3>Proč je bezpečnost webu důležitá i pro malé weby</h3>
+          <p>Hackeři neútočí jen na velké firmy. Zjisti, jak ochránit svůj web před nejčastějšími hrozbami.</p>
+          <div class="card-footer">
+            <span class="card-date">📅 1. 4. 2026 · 6 min</span>
+            <span class="card-read-btn">Číst <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal reveal-delay-3" onclick="openArticle(3)">
+        <div class="card-banner">
+          <svg viewBox="0 0 400 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7c2d12"/>
+                <stop offset="100%" stop-color="#9a3412"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="180" fill="url(#g4)"/>
+            <polygon points="200,20 240,140 140,70 260,70 160,140" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.4"/>
+            <circle cx="200" cy="90" r="40" fill="#fb923c" opacity="0.1"/>
+          </svg>
+          <span class="card-banner-emoji">⚡</span>
+        </div>
+        <div class="card-body">
+          <span class="card-tag tag-orange">Výkon</span>
+          <h3>Rychlost webu: proč každá sekunda stojí peníze</h3>
+          <p>Google tě penalizuje za pomalé stránky a zákazníci odcházejí. Jak rychle zrychlit web?</p>
+          <div class="card-footer">
+            <span class="card-date">📅 24. 3. 2026 · 8 min</span>
+            <span class="card-read-btn">Číst <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal reveal-delay-4" onclick="openArticle(4)">
+        <div class="card-banner">
+          <svg viewBox="0 0 400 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7f1d1d"/>
+                <stop offset="100%" stop-color="#991b1b"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="180" fill="url(#g5)"/>
+            <circle cx="100" cy="90" r="50" fill="#ef4444" opacity="0.1"/>
+            <circle cx="200" cy="60" r="35" fill="#f87171" opacity="0.1"/>
+            <circle cx="300" cy="110" r="45" fill="#fca5a5" opacity="0.08"/>
+            <path d="M80,120 L120,60 L160,90 L200,40 L240,80 L280,50 L320,90" stroke="#fca5a5" stroke-width="1.5" fill="none" opacity="0.4"/>
+          </svg>
+          <span class="card-banner-emoji">💡</span>
+        </div>
+        <div class="card-body">
+          <span class="card-tag tag-red">Inspirace</span>
+          <h3>10 zdrojů, které mě naučily víc než roky studia</h3>
+          <p>Komunity, newslettery, YouTube kanály a weby, které nám skutečně pomohly — bez planého tlachání.</p>
+          <div class="card-footer">
+            <span class="card-date">📅 17. 3. 2026 · 4 min</span>
+            <span class="card-read-btn">Číst <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ TRUST ══ -->
+<section id="duvera">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">Proč my</p>
+    <h2 class="section-title reveal reveal-delay-1">Píšeme s odpovědností</h2>
+    <p class="section-sub reveal reveal-delay-2">Každý článek je ověřený praxí, napsaný lidmi s reálnými zkušenostmi.</p>
+
+    <div class="trust-grid">
+      <div class="trust-card reveal">
+        <div class="trust-icon-wrap">🎯</div>
+        <h4>Konkrétní rady</h4>
+        <p>Žádné obecné fráze. Každý článek obsahuje kroky, které hned můžeš aplikovat.</p>
+      </div>
+      <div class="trust-card reveal reveal-delay-1">
+        <div class="trust-icon-wrap">🔬</div>
+        <h4>Ověřené zdroje</h4>
+        <p>Odkazujeme na výzkumy, testy a reálná data — ne na mýty a dohady.</p>
+      </div>
+      <div class="trust-card reveal reveal-delay-2">
+        <div class="trust-icon-wrap">🕐</div>
+        <h4>Aktuální obsah</h4>
+        <p>Web se mění rychle. Pravidelně aktualizujeme staré články, aby zůstaly relevantní.</p>
+      </div>
+      <div class="trust-card reveal reveal-delay-3">
+        <div class="trust-icon-wrap">❤️</div>
+        <h4>Komunita čtenářů</h4>
+        <p>Tisíce lidí sdílí zkušenosti. Odpovídáme na každý dotaz osobně.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ RECENZE ══ -->
+<section id="recenze">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">Recenze</p>
+    <h2 class="section-title reveal reveal-delay-1">Co říkají naši čtenáři</h2>
+    <p class="section-sub reveal reveal-delay-2">Nezveřejňujeme jen ty hezké — zde jsou upřímné ohlasy od skutečných lidí.</p>
+
+    <div class="testimonials-grid">
+      <div class="testimonial reveal">
+        <div class="stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <blockquote>„Díky článku o SEO jsem za 3 měsíce ztrojnásobila organický provoz. Konečně něco, co skutečně funguje!"</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">MK</div>
+          <div class="author-info">
+            <strong>Markéta Kovářová</strong>
+            <span>Majitelka e-shopu, Praha</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial reveal reveal-delay-1">
+        <div class="stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <blockquote>„Přečetl jsem stovky blogů o webdesignu, ale tenhle je jiný. Konečně bez plevelných slov — jen to podstatné."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">TN</div>
+          <div class="author-info">
+            <strong>Tomáš Novotný</strong>
+            <span>Freelance grafik, Brno</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial reveal reveal-delay-2">
+        <div class="stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star empty"></div>
+        </div>
+        <blockquote>„Článek o rychlosti webu mi otevřel oči. Stačily 2 hodiny práce a moje stránka je o 40 % rychlejší."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">LP</div>
+          <div class="author-info">
+            <strong>Lukáš Procházka</strong>
+            <span>IT student, Ostrava</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="cta-aurora"></div>
+  <div class="section-inner">
+    <div class="cta-inner reveal">
+      <p class="section-eyebrow" style="-webkit-text-fill-color: unset; background: none; color: #f59e0b;">Newsletter zdarma</p>
+      <h2 class="section-title" style="margin-bottom: 1rem;">Nový článek každý týden.<br>Přímo do tvého inboxu.</h2>
+      <p class="section-sub" style="margin-bottom: 2.5rem;">Přidej se k 12 400 čtenářům, kteří dostávají to nejlepší ze světa webu. Bez spamu.</p>
+
+      <div class="cta-card">
+        <form class="cta-form" onsubmit="handleSubmit(event)">
+          <input type="email" placeholder="tvuj@email.cz" required aria-label="E-mail" />
+          <button type="submit">Chci odebírat →</button>
+        </form>
+        <p class="cta-note">🔒 Tvůj e-mail je v bezpečí. Nikomu ho neprodáváme.</p>
+        <div class="cta-perks">
+          <div class="cta-perk"><span class="perk-check">✓</span> Bez spamu</div>
+          <div class="cta-perk"><span class="perk-check">✓</span> Odhlásit jedním klikem</div>
+          <div class="cta-perk"><span class="perk-check">✓</span> Vždy zdarma</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <span class="footer-logo">WebMaster</span>
+  <p>© 2026 WebMaster Blog · <a href="#">Ochrana soukromí</a> · <a href="#">Podmínky</a> · Vytvořeno s ❤️ v ČR</p>
+</footer>
+
+<!-- ══ ARTICLE MODAL ══ -->
+<div class="article-overlay" id="articleOverlay" onclick="closeOnBackdrop(event)">
+  <div class="article-box" id="articleBox">
+    <button class="article-close" onclick="closeArticle()">✕</button>
+    <div id="articleContent"></div>
+  </div>
+</div>
+
+<!-- ══ TOAST ══ -->
+<div class="toast" id="toast">✅ Skvělé! Brzy dostaneš první článek.</div>
+
+<!-- ══════════════════════ SCRIPTS ══════════════════════ -->
+<script>
+/* ─── CURSOR ─── */
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px'; });
+(function animRing() {
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animRing);
+})();
+
+/* ─── PROGRESS BAR ─── */
+const bar = document.getElementById('progress-bar');
+document.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.width = (window.scrollY / h * 100) + '%';
+});
+
+/* ─── THEME TOGGLE ─── */
+const toggle = document.getElementById('themeToggle');
+toggle.addEventListener('click', () => {
+  const isDark = document.documentElement.dataset.theme === 'dark';
+  document.documentElement.dataset.theme = isDark ? 'light' : 'dark';
+  toggle.textContent = isDark ? '☀️' : '🌙';
+});
+
+/* ─── HERO CANVAS PARTICLES ─── */
+const canvas = document.getElementById('hero-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function resize() {
+  canvas.width  = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+function Particle() {
+  this.x = Math.random() * canvas.width;
+  this.y = Math.random() * canvas.height;
+  this.size = Math.random() * 1.5 + 0.5;
+  this.speedX = (Math.random() - 0.5) * 0.5;
+  this.speedY = (Math.random() - 0.5) * 0.5;
+  this.opacity = Math.random() * 0.5 + 0.1;
+  this.color = ['#6366f1','#22d3ee','#a78bfa','#f59e0b'][Math.floor(Math.random()*4)];
+}
+
+for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+let mouseX = canvas.width/2, mouseY = canvas.height/2;
+canvas.addEventListener('mousemove', e => {
+  const r = canvas.getBoundingClientRect();
+  mouseX = e.clientX - r.left;
+  mouseY = e.clientY - r.top;
+});
+
+function drawParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach((p, i) => {
+    p.x += p.speedX;
+    p.y += p.speedY;
+    if (p.x < 0 || p.x > canvas.width)  p.speedX *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+    /* subtle mouse repel */
+    const dx = p.x - mouseX, dy = p.y - mouseY;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    if (dist < 100) {
+      p.x += dx / dist * 0.8;
+      p.y += dy / dist * 0.8;
+    }
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = p.opacity;
+    ctx.fill();
+
+    /* draw lines to nearby */
+    particles.slice(i+1).forEach(q => {
+      const dx2 = p.x - q.x, dy2 = p.y - q.y;
+      const d2  = Math.sqrt(dx2*dx2 + dy2*dy2);
+      if (d2 < 100) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(q.x, q.y);
+        ctx.strokeStyle = p.color;
+        ctx.globalAlpha = (1 - d2/100) * 0.15;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    });
+  });
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+/* ─── TYPEWRITER ─── */
+const words = ['uspět online', 'vytvořit web', 'získat klienty', 'zvládnout SEO', 'růst rychleji'];
+let wi = 0, ci = 0, deleting = false;
+const tw = document.getElementById('typewriter');
+
+function typeLoop() {
+  const word = words[wi];
+  if (!deleting) {
+    tw.textContent = word.slice(0, ++ci);
+    if (ci === word.length) { deleting = true; setTimeout(typeLoop, 1800); return; }
+    setTimeout(typeLoop, 90);
+  } else {
+    tw.textContent = word.slice(0, --ci);
+    if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; setTimeout(typeLoop, 400); return; }
+    setTimeout(typeLoop, 45);
+  }
+}
+typeLoop();
+
+/* ─── COUNTER ANIMATION ─── */
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const duration = 1800;
+  const start = performance.now();
+  (function update(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.floor(ease * target).toLocaleString('cs');
+    if (t < 1) requestAnimationFrame(update);
+    else el.textContent = target.toLocaleString('cs');
+  })(start);
+}
+
+/* ─── SCROLL REVEAL ─── */
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => io.observe(el));
+
+/* ─── COUNTER ON HERO VISIBLE ─── */
+const counters = document.querySelectorAll('.counter');
+const counterIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { animateCounter(e.target); counterIO.unobserve(e.target); }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterIO.observe(c));
+
+/* ─── 3D CARD TILT ─── */
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - 0.5;
+    const y = (e.clientY - r.top)  / r.height - 0.5;
+    card.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-6px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+/* ─── ARTICLES ─── */
+const articles = [
+  {
+    tag: "Web & Design",
+    title: "5 chyb, které dělají všichni začátečníci při tvorbě webu",
+    meta: "15. dubna 2026 · 5 min čtení · Jan Horák",
+    body: `
+      <p>Tvorba webu se dnes zdá jednoduchá — stáhneš šablonu, vyplníš text, a hotovo. Jenže mezi <em>existujícím</em> webem a <em>fungujícím</em> webem je propastný rozdíl.</p>
+      <h3>1. Ignorování mobilního zobrazení</h3>
+      <p>Víc než 60 % uživatelů browsuje ze smartphonu. Pokud tvůj web vypadá na mobilu jako rozbitá puzzle, ztratíš je hned na vstupu. Vždy nejdřív navrhuj pro mobil (<em>mobile-first</em>), pak pro desktop.</p>
+      <h3>2. Příliš mnoho fontů a barev</h3>
+      <p>Začátečníci chtějí zaujmout — a tak míchají pět fontů a deset barev. Výsledek? Chaos, který odrazuje. Pravidlo: maximálně 2 fonty, 2–3 barvy.</p>
+      <h3>3. Žádné výzvy k akci (CTA)</h3>
+      <p>Návštěvník přišel, přečetl a… odešel. Každá stránka musí mít jasný cíl: objednat, zavolat, přihlásit se.</p>
+      <blockquote>„Dobrý web nemusí být krásný. Musí být jasný."</blockquote>
+      <h3>4. Pomalé načítání obrázků</h3>
+      <p>Nahráváš obrázky přímo z fotoaparátu? 4 MB fotka na homepage je katastrofa. Vždy komprimuj — Squoosh nebo TinyPNG jsou zdarma.</p>
+      <h3>5. Zapomenuté SEO základy</h3>
+      <p>Title tagy, meta popisky, alt texty u obrázků — tyhle maličkosti rozhodují o tom, jestli tě Google vůbec ukazuje.</p>
+    `
+  },
+  {
+    tag: "Marketing",
+    title: "Jak získat prvních 1 000 návštěvníků bez reklamy",
+    meta: "8. dubna 2026 · 7 min čtení · Petra Malinová",
+    body: `
+      <p>Placená reklama umí přivést návštěvníky rychle — ale jakmile přestaneš platit, provoz se zastaví. Organický provoz funguje naopak.</p>
+      <h3>Krok 1: Vyber si jedno klíčové slovo</h3>
+      <p>Nepokrývej všechno najednou. Vyber jedno téma a buď na něj nejlepší. Pomocí Google Search Console nebo Ubersuggest najdi, co lidi skutečně hledají.</p>
+      <h3>Krok 2: Napiš nejlepší článek na internetu</h3>
+      <p>Google preferuje obsah, který opravdu odpovídá na otázku — komplexně, srozumitelně, s příklady. Minimálně 1 500 slov.</p>
+      <h3>Krok 3: Sdílej tam, kde jsou tvoji lidé</h3>
+      <ul>
+        <li>Facebookové skupiny ve tvém oboru</li>
+        <li>Reddit komunity (r/czech, tematické subreddity)</li>
+        <li>LinkedIn pokud cílíš na profesionály</li>
+        <li>Quora a diskuzní fóra s odpověďmi na otázky</li>
+      </ul>
+      <blockquote>„Content is king, but distribution is queen — and she runs the household."</blockquote>
+      <h3>Krok 4: Spolupráce s jinými weby</h3>
+      <p>Guest posting — nabídni jiným bloggerům svůj článek jako příspěvek. Dostaneš zpětný odkaz a část jejich publika.</p>
+      <h3>Bonus: E-mail je tvůj nejlepší přítel</h3>
+      <p>Buduj seznam odběratelů od první chvíle. I 100 lidí na newsletteru je víc než 10 000 followerů na sociálních sítích.</p>
+    `
+  },
+  {
+    tag: "Bezpečnost",
+    title: "Proč je bezpečnost webu důležitá i pro malé weby",
+    meta: "1. dubna 2026 · 6 min čtení · Martin Šimánek",
+    body: `
+      <p>„Kdo by hackoval můj malý blog?" — takhle smýšlí tisíce majitelů webů, dokud se jim stránky nezmění na rozesílač spamu. Realita: hackeři jsou automatizovaní roboti, kteří útočí na <em>všechno</em>.</p>
+      <h3>Co se může stát</h3>
+      <ul>
+        <li>Tvůj web rozesílá spam z tvé domény — přijdeš o reputaci</li>
+        <li>Google tě označí jako nebezpečný — ztratíš SEO pozice</li>
+        <li>Útočník ukradne data zákazníků — hrozí pokuta GDPR</li>
+        <li>Web jednoduše přestane fungovat</li>
+      </ul>
+      <h3>5 okamžitých kroků</h3>
+      <p><strong>1. Silná hesla.</strong> Používej Bitwarden nebo 1Password. Každý účet musí mít unikátní heslo.</p>
+      <p><strong>2. Dvoufázové ověření (2FA).</strong> Zapni ho všude — hosting, e-mail, domény.</p>
+      <p><strong>3. Pravidelné zálohy.</strong> Měj zálohu webu na jiném místě, než je hosting.</p>
+      <p><strong>4. Aktualizuj vše.</strong> WordPress, pluginy, šablony. Zastaralé verze = otevřené dveře.</p>
+      <p><strong>5. HTTPS je nutnost.</strong> SSL certifikát dnes dostaneš zdarma přes Let's Encrypt.</p>
+      <blockquote>„Bezpečnost není produkt, ale proces."</blockquote>
+    `
+  },
+  {
+    tag: "Výkon",
+    title: "Rychlost webu: proč každá sekunda stojí peníze",
+    meta: "24. března 2026 · 8 min čtení · Jan Horák",
+    body: `
+      <p>Amazon zjistil, že každá 100ms prodleva snižuje tržby o 1 %. Google penalizuje pomalé stránky. A průměrný uživatel odejde, pokud se stránka nenačte do 3 sekund.</p>
+      <h3>Jak zjistit rychlost webu</h3>
+      <p>Otevři Google PageSpeed Insights nebo GTmetrix. Skóre pod 50 je problém. Nad 90 je výborné.</p>
+      <h3>Největší zabiják rychlosti: obrázky</h3>
+      <ul>
+        <li>Komprimuj obrázky před nahráním (TinyPNG, Squoosh)</li>
+        <li>Používej moderní formát WebP místo JPG/PNG</li>
+        <li>Lazy loading — načítej obrázky až při scrollování</li>
+        <li>Správná velikost — nenahrávej fotku 4000px pro thumbnail 300px</li>
+      </ul>
+      <h3>Cache a CDN</h3>
+      <p>Cache ukládá statické verze stránek. CDN distribuuje obsah ze serverů blízkých uživateli. Pro WordPress W3 Total Cache, pro statické weby Cloudflare zdarma.</p>
+      <blockquote>„Nejrychlejší kód je ten, který se nespustí."</blockquote>
+      <h3>Core Web Vitals</h3>
+      <p>Google měří: LCP (rychlost načtení), CLS (skákání layoutu), INP (reakce na kliknutí). Splnění přímo ovlivňuje tvé pozice ve vyhledávání.</p>
+    `
+  },
+  {
+    tag: "Inspirace",
+    title: "10 zdrojů, které mě naučily víc než roky studia",
+    meta: "17. března 2026 · 4 min čtení · Petra Malinová",
+    body: `
+      <p>Studium je skvělé. Ale reálné znalosti jsem nabrala z jiných míst — komunity, newslettery, YouTube kanály.</p>
+      <h3>Dokumentace a reference</h3>
+      <p><strong>MDN Web Docs</strong> — biblická reference pro HTML, CSS a JavaScript. Přehledná, důvěryhodná, kompletní.</p>
+      <p><strong>CSS Tricks</strong> — tisíce návodů na konkrétní CSS problémy.</p>
+      <h3>Učení</h3>
+      <p><strong>The Odin Project</strong> — kompletní bezplatný kurz webového vývoje. Lepší než většina placených kurzů.</p>
+      <p><strong>freeCodeCamp</strong> — interaktivní výuka přímo v prohlížeči s certifikáty.</p>
+      <p><strong>Fireship na YouTube</strong> — 100-sekundová vysvětlení technologií. Hustá a přesná informace.</p>
+      <h3>Komunita</h3>
+      <p><strong>Stack Overflow</strong> — na každou otázku, kterou kdy budeš mít, tu existuje odpověď.</p>
+      <p><strong>GitHub</strong> — procházej open-source projekty a čti, jak jiní řeší problémy.</p>
+      <blockquote>„Nejlepší vývojáři nejsou ti, kteří všechno vědí — jsou to ti, kteří vědí, kde hledat."</blockquote>
+      <h3>Bonusový tip</h3>
+      <p>Nejlepší investice není kurz ani kniha — je to <strong>vlastní projekt</strong>. Narazíš na reálné problémy a jejich řešení si zapamatuješ navždy.</p>
+    `
+  }
+];
+
+function openArticle(i) {
+  const a = articles[i];
+  document.getElementById('articleContent').innerHTML = `
+    <span class="article-tag">${a.tag}</span>
+    <h2>${a.title}</h2>
+    <p class="article-meta">📅 ${a.meta}</p>
+    <div class="article-body">${a.body}</div>
+  `;
+  document.getElementById('articleOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeArticle() {
+  document.getElementById('articleOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closeOnBackdrop(e) {
+  if (e.target === document.getElementById('articleOverlay')) closeArticle();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeArticle(); });
+
+function handleSubmit(e) {
+  e.preventDefault(); e.target.reset();
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+</script>
+</body>
+</html>
