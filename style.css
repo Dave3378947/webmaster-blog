@@ -986,12 +986,27 @@ section { padding: 6rem 2rem; position: relative; }
   font-size: 0.92rem;
   padding: 0.75rem 1.75rem;
   border-radius: 12px;
+  border: none;
+  font-family: inherit;
   text-decoration: none;
   box-shadow: 0 6px 20px rgba(245,158,11,0.35);
   transition: transform .2s, box-shadow .2s;
   cursor: none;
   margin-top: 0.25rem;
+  position: relative;
+  overflow: hidden;
 }
+
+.article-cta-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(255,255,255,0.15));
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.article-cta-btn:hover::after { opacity: 1; }
 
 .article-cta-btn:hover {
   transform: translateY(-2px);
